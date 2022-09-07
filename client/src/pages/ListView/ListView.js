@@ -10,7 +10,7 @@ import NameFilter from '../../components/NameFilter/NameFilter';
 import GenderSelect from '../../components/GenderSelect/GenderSelect';
 import UserList from '../../components/UserList/UserList'
 import LoadingComponent from '../../components/Loading';
-
+import Pagination from '../../components/Pagination/Pagination';
 
 //This is the Api url that will be called on the backend
 const API_URL = "http://localhost:5005/api";
@@ -21,6 +21,10 @@ export default function ListView() {
     const [genders,setGenders] = useState([])
     const [isLoader,setIsLoader] = useState(true)
     
+    //states relative to pagination
+    const [currentPage,setCurrentPage] = useState(1)
+    const [usersPerPage] = useState(9)
+
     //functions that will be used to filter. Will be passed as props
     //Name filter function
     const searchUserByUsername = (name) => {
@@ -76,7 +80,18 @@ export default function ListView() {
             setIsLoader(false)
         },3000)
     },[])
+
+    //Pagination
+    //Get the current users
+    const indexOfLastUser = currentPage * usersPerPage
+    const indexOfFirstUser = indexOfLastUser - usersPerPage
+    const currentUsers = users.slice(indexOfFirstUser,indexOfLastUser)
+
+    //Paginate method --> change the current page
+    const paginate = (number) => setCurrentPage(number)
     
+
+
     return isLoader ? 
     (<LoadingComponent/>)
     :
@@ -86,7 +101,8 @@ export default function ListView() {
                 <NameFilter searchUser={searchUserByUsername}/>
                 <GenderSelect filter={filterUserByGender} genders={genders}/>
             </div>
-            <UserList users={users} deleteUser={deleteUser}/>
+            <UserList users={currentUsers} deleteUser={deleteUser}/>
+            <Pagination paginate={paginate} usersPerPage={usersPerPage} totalUsers={users.length}/>
         </div>
     )
 }
