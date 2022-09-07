@@ -1,15 +1,20 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import routes from "./config/routes";
+import { Route,Routes } from "react-router-dom";
+
+//Custom components
+import Layout from "./components/Layout/Layout";
+import ListView from "./pages/ListView/ListView";
+import DetailView from "./pages/DetailView/DetailView";
 
 function App() {
   return (
     <div className="App">
+    <Layout>
       <Routes>
-        {routes({}).map((route) => (
-          <Route key={route.path} path={route.path} element={route.element} />
-        ))}
+        <Route path="/" element={<ListView/>}/>
+        <Route path="/:userId" element={<DetailView/>}/>
       </Routes>
+    </Layout>
     </div>
   );
 }

@@ -1,0 +1,52 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    width: 80%;
+    background-color: #F5F5F6;
+}
+
+.card_body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.card_body img{
+    width: 80%;
+}
+
+
+
+
+.card_buttons{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+.card_button{
+    color: #263238;
+    border: 0px;
+    padding: 8px;
+    margin: 5px 0px 5px 0px;
+}
+
+#button_details{
+    background-color: #b2dfdb;
+}
+
+#button_details:hover{
+    background-color: #709995;
+}
+
+#button_delete{
+    background-color: #82ada9;
+}
+
+#button_delete:hover{
+    background-color: #698d89;
+}

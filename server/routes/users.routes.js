@@ -6,6 +6,10 @@ Because the endpoint returns 100 random users, and because there is no endpoint 
 id, we need a saved data variable to find a single user with ID */
 let data
 
+router.get("/", (req, res, next) => {
+    res.json("All good in here");
+});
+
 //Get all the 100 users
 router.get('/users', (req,res,next) => {
     axios
