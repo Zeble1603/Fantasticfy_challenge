@@ -4,6 +4,7 @@
     align-items: center;
     padding: 2rem;
     width: 80%;
+    height: fit-content;
     background-color: #F5F5F6;
 }
 
@@ -16,10 +17,12 @@
 
 .card_body img{
     width: 80%;
+    max-width: 300px;
 }
 
-
-
+.card_info{
+    text-align: center;
+}
 
 .card_buttons{
     display: flex;

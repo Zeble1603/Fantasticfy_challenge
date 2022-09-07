@@ -1,0 +1,12 @@
+#detail_view{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#detail_view span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

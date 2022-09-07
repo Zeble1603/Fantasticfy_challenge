@@ -9,3 +9,8 @@
 .userlist li{
     padding: 5px;
 }
+
+#filters{
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -23,7 +23,7 @@ router.get('/users', (req,res,next) => {
 //Get a single user by its id
 router.get('/users/:userId', (req,res,next) => {
     const {userId} = req.params
-    const foundUser = data.find(user => user.id == userId)
+    const foundUser = data.find(user => user.uid === userId)
     res.json(foundUser)
 })
 
