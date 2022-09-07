@@ -9,6 +9,8 @@ import './ListView.css'
 import NameFilter from '../../components/NameFilter/NameFilter';
 import GenderSelect from '../../components/GenderSelect/GenderSelect';
 import UserList from '../../components/UserList/UserList'
+import LoadingComponent from '../../components/Loading';
+
 
 //This is the Api url that will be called on the backend
 const API_URL = "http://localhost:5005/api";
@@ -17,6 +19,7 @@ export default function ListView() {
     const [users,setUsers] = useState([])
     const [clonedUsers,setClonedUsers] = useState([])
     const [genders,setGenders] = useState([])
+    const [isLoader,setIsLoader] = useState(true)
     
     //functions that will be used to filter. Will be passed as props
     //Name filter function
@@ -51,7 +54,7 @@ export default function ListView() {
         setClonedUsers(newArray)
     }
 
-
+    //Ask the backend for datas when component is mounted
     useEffect(()=>{
         axios.get(`${API_URL}/users/`)
         .then(foundUsers => {
@@ -60,14 +63,24 @@ export default function ListView() {
         .catch(err => console.log(err))
     },[])
 
-
+    //When user state is change, check for all the genders returned by the api
     useEffect(()=>{
         const allGenders = users.map(user => user.gender)
         const uniqueGendersArray = [...new Set(allGenders)]
         setGenders(uniqueGendersArray)
     },[users])
 
-    return (
+    //Loader
+    useEffect(()=>{
+        setTimeout(()=>{
+            setIsLoader(false)
+        },3000)
+    },[])
+    
+    return isLoader ? 
+    (<LoadingComponent/>)
+    :
+    (
         <div className='list_view'>
             <div id='filters'>
                 <NameFilter searchUser={searchUserByUsername}/>
