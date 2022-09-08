@@ -12,7 +12,7 @@ export default function NameFilter(props) {
 
     return (
         <div id="name_filter">
-            <label for="fname">Find a user</label>
+            <label htmlFor="fname">Find a user</label>
             <input value={searchName} onChange={handleName} type="text" id="fname" name="username" placeholder="Username..."/>
         </div>
     )

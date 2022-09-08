@@ -5,7 +5,7 @@ export default function Navbar() {
     return (
         <nav id='navbar'>
             <ul>
-                <li><NavLink id="home_link" to="/"><i id='home_icon' class="fa fa-home fa-lg"></i></NavLink></li>
+                <li><NavLink id="home_link" to="/"><i id='home_icon' className="fa fa-home fa-lg"></i></NavLink></li>
             </ul>
         </nav>
     )

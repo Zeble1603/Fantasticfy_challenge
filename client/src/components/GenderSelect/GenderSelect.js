@@ -13,7 +13,7 @@ export default function GenderSelect(props) {
 
     return (
         <div id='gender_filter'>
-            <label for="gender_select">Choose a gender:</label>
+            <label htmlFor="gender_select">Choose a gender:</label>
             <select name="genders" id="gender_select" onChange={handleGender} value={selectedGender}>
                 <option value="All genders">--All genders--</option>
                 {genders.map((gender)=>{

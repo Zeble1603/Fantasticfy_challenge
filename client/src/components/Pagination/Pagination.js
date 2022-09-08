@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './Pagination.css'
 
 export default function Pagination(props) {
@@ -11,7 +10,7 @@ export default function Pagination(props) {
     }
     
     return (
-        <div class="pagination">
+        <div className="pagination">
             {pageNumber.map(number=>(
                 <a onClick={()=> paginate(number)} key={number} href>{number}</a>
             ))}
