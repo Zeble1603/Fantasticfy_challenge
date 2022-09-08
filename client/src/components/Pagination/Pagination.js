@@ -12,7 +12,7 @@ export default function Pagination(props) {
     return (
         <div className="pagination">
             {pageNumber.map(number=>(
-                <a onClick={()=> paginate(number)} key={number} href>{number}</a>
+                <p onClick={()=> paginate(number)} key={number}>{number}</p>
             ))}
             
         </div>
