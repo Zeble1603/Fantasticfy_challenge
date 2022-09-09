@@ -16,8 +16,8 @@
 }
 
 .card_body img{
-    width: 80%;
-    max-width: 300px;
+    width: 300px;
+    height: 300px;
 }
 
 .card_info{
